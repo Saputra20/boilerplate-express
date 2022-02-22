@@ -9,6 +9,11 @@ const envVarsSchema = Joi.object()
     NODE_ENV: Joi.string().valid('production', 'development', 'test').required(),
     PORT: Joi.number().default(3000),
     BASE_URL: Joi.string().required(),
+    DATABASE_USER: Joi.string().required(),
+    DATABASE_PASSWORD: Joi.string().default(''),
+    DATABASE_HOST: Joi.string().required(),
+    DATABASE_PORT: Joi.number().default(5432),
+    DATABASE_NAME: Joi.string().required(),
   })
   .unknown();
 
@@ -24,4 +29,11 @@ module.exports = {
   env: envVars.NODE_ENV,
   port: envVars.PORT,
   baseUrl: envVars.BASE_URL,
+  database: {
+    user: envVars.DATABASE_USER,
+    password: envVars.DATABASE_PASSWORD,
+    host: envVars.DATABASE_HOST,
+    port: envVars.DATABASE_PORT,
+    name: envVars.DATABASE_NAME,
+  },
 };
