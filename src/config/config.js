@@ -9,6 +9,11 @@ const envVarsSchema = Joi.object()
     NODE_ENV: Joi.string().valid('production', 'development', 'test').required(),
     PORT: Joi.number().default(3000),
     BASE_URL: Joi.string().required(),
+    SPACE_NAME: Joi.string().required(),
+    SPACE_KEY: Joi.string().required(),
+    SPACE_SECRET: Joi.string().required(),
+    SPACE_ENDPOINT: Joi.string().required(),
+    SPACE_ROOT_DIR: Joi.string().required(),
   })
   .unknown();
 
@@ -24,4 +29,11 @@ module.exports = {
   env: envVars.NODE_ENV,
   port: envVars.PORT,
   baseUrl: envVars.BASE_URL,
+  s3: {
+    name: envVars.SPACE_NAME,
+    key: envVars.SPACE_KEY,
+    secret: envVars.SPACE_SECRET,
+    endpoint: envVars.SPACE_ENDPOINT,
+    rootDir: envVars.SPACE_ROOT_DIR,
+  },
 };
