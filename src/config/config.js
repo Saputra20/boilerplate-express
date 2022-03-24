@@ -9,6 +9,10 @@ const envVarsSchema = Joi.object()
     NODE_ENV: Joi.string().valid('production', 'development', 'test').required(),
     PORT: Joi.number().default(3000),
     BASE_URL: Joi.string().required(),
+    MIDTRANS_MODE: Joi.string().required(),
+    MIDTRANS_SECRET_KEY: Joi.string().required(),
+    MIDTRANS_CLIENT_ID: Joi.string().required(),
+    MIDTRANS_CALLBACK: Joi.string().required(),
   })
   .unknown();
 
@@ -24,4 +28,10 @@ module.exports = {
   env: envVars.NODE_ENV,
   port: envVars.PORT,
   baseUrl: envVars.BASE_URL,
+  midtrans: {
+    mode: envVars.MIDTRANS_MODE,
+    secretKey: envVars.MIDTRANS_SECRET_KEY,
+    clientId: envVars.MIDTRANS_CLIENT_ID,
+    callback: envVars.MIDTRANS_CALLBACK,
+  },
 };
