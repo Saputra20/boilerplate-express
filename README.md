@@ -33,3 +33,15 @@ run seeder
 ```bash
 npx sequelize db:seed:all
 ```
+run mode development
+```bash
+npm run dev
+```
+run nodemon - development
+```bash
+npm run dev
+```
+run pm2 
+```bash
+npm run start
+```
